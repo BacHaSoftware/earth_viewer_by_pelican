@@ -1,0 +1,34 @@
+version: "3"
+services:
+  frontend: #name of the first service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8633:3000" # specify port forewarding
+    restart: always
+  proxy: #name of the second service
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
+    ports:
+      - "8632:5000" #specify ports forewarding
+    restart: always
+    environment:
+      - REDIS_URL=redis://cache
+      - NODE_ENV=development
+      - PORT=3000
+    links:
+      - redis:redis
+    networks:
+      virtual_earth:
+  redis:
+    image: redis
+    container_name: cache
+    ports:
+     - 8636:6379
+    restart: always
+    networks:
+      virtual_earth:
+networks:
+  virtual_earth:

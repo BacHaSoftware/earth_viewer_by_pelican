@@ -1,0 +1,99 @@
+.menu-tools {
+    position: fixed;
+    right: 30px;
+    top: 30px;
+    p {
+        color: $text-color;
+    }
+    width: 56px;
+    background: rgba(42, 42, 42, .8);
+    padding: 4px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+
+    .tool {
+        width: 25px;
+        height: 25px;
+        background-color: #eee;
+        display: block;
+        cursor: pointer;
+        transition: all 0.2s;
+        &:hover {
+            background-color: #888;
+        }
+    }
+
+    .tools {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        &:not(:last-child) {
+            margin-bottom: 6px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 6px;
+        }
+        &-view {
+            mask-image: url("../assets/icons/layer.svg");
+            mask-position: center;
+            mask-repeat: no-repeat;
+        }
+        &-indepth {
+            height: 25px;
+            mask-image: url("../assets/icons/depth.svg");
+            mask-position: center;
+            mask-repeat: no-repeat;
+        }
+
+        .panel {
+            background: rgba(42, 42, 42, .8);
+            border: 1px solid #444;
+            border-radius: 4px;
+            position: absolute;
+            padding: 16px 20px;
+            min-width: 220px;
+            right: 75px;
+            top: 0;
+            &-item {
+                cursor: pointer;
+                &.inactive {
+                    opacity: 0.8;
+                    pointer-events: none;
+                }
+
+                &.active {
+                    span.icon-check {
+                        display: inline-block;
+                    }
+                }
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 5px 0px;
+                span.icon-check {
+                    width: 17px;
+                    height: 17px;
+                    background-color: #fff;
+                    mask-image: url("../assets/icons/check.svg");
+                    mask-repeat: no-repeat;
+                    mask-position: center;
+                    display: none;
+                    
+                }
+                p {
+                    margin: 0;
+                    text-align: left;
+                    user-select: none;
+                    width: 100%;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+}

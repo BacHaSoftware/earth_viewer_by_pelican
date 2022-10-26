@@ -1,0 +1,246 @@
+.main-slider-container {
+    height: 240px;
+    width: 100%;
+    display: flex;
+    border: solid 1px #888;
+    border-width: 1px 0 1px 0;
+    .pseudo-div {
+        width: 10%;
+        height: 100%;
+        background: $main-bg;
+
+        &.have-selection {
+            position: relative;
+            .select-section {
+                position: absolute;
+                width: 160px;
+                height: 35px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                top: 0;
+                margin: auto;
+            }
+
+            .selected-value {
+                border-radius: 4px;
+                font-weight: 500;
+                font-size: 18px;
+                color: #333640;
+                width: 100%;
+                height: 35px;
+                background: #f7f8fc;
+                cursor: pointer;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px;
+                box-sizing: border-box;
+                
+                span {
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            p {
+                margin: 0;
+            }
+
+            .options-container {
+                cursor: pointer;
+                &.open {
+                    display: block;
+                }
+                display: none;
+                position: absolute;
+                top: calc(-100% - 133px);
+                background: $text-color;
+                width: 100%;
+                box-shadow: 0px 18px 88px -4px rgba(24, 39, 75, 0.12);
+                border-radius: 4px;
+                .option {
+                    cursor: pointer;
+                    width: 100%;
+                    padding: 10px 20px;
+                    background: #f7f8fc;
+                    box-sizing: border-box;
+                    color: #333640;
+                border-radius: 4px;
+                    transition: all 0.2s;
+                    &:hover {
+                        background-color: $bg-color-dark;
+                        color: $text-color;
+                        
+                    }
+                }
+            }
+        }
+
+
+        .upper-content-pseudo {
+            width: 100%;
+            height: 50%;
+        }
+    
+        .bottom-content-pseudo {
+            width: 100%;
+            height: 50%;
+        }
+    }
+}
+
+.main-slider {
+    width: 80%;
+    margin: 0 auto;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: $main-bg;
+}
+
+.upper-slider {
+    width: 100%;
+    height: 15%;
+    // background-color: $timeline-main-color;
+    position: relative;
+    border-bottom: 1px solid #888;
+
+    .line-wrapper {
+        left: 0;
+        right: 0;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        z-index: 99;
+        .line {
+            position: absolute;
+            bottom: 0;
+            width: 1px; //10cm
+            height: 50%;
+            background: $border-color;
+        }
+    }
+}
+
+.timeline-scrubber {
+    cursor: pointer;
+    img {
+            width: 21px;
+            height: 222px;
+            position: absolute;
+            z-index: 99;
+            top: 50px;
+        }
+}
+
+.bottom-slider {
+    position: relative;
+    width: 100%;
+    height: 15%;
+    z-index: 99;
+    // background-color: $timeline-second-color;
+
+    .label-wrapper {
+        left: 0;
+        right: 0;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        .label {
+                position: absolute;
+                bottom: 0;
+                font-weight: 500;
+                color: $text-color;
+            }
+    }
+}
+
+.timeline-range-wrapper {
+    
+    position: relative;
+
+}
+
+.timeline-range-wrapper {
+    position: relative;
+    height: 70%;
+    overflow: hidden;
+
+    .timeline-range {
+        background-color: black;
+        color: $text-color;
+        position: absolute;
+        text-align: center;
+        span, a {
+            width: 98%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0 5px;
+        }
+    }
+}
+
+.event-marker {
+    position: absolute;
+        left: 57px;
+        width: 0;
+        height: 0;
+        margin-top: -6px;
+        width: 0;
+        height: 0;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-top: 12px solid #f00;
+}
+
+.timeslider-eventmarker.impact {
+    border-right-color: #e5353b;
+}
+
+.event-marker.biological {
+    border-top-color: #68bc45;
+}
+
+.event-marker.fossil {
+    border-top-color: #1c60eb;
+}
+
+.event-marker.extinction {
+    border-top-color: #ddd117;
+}
+
+.event-marker.geological {
+    border-top-color: #bc7045;
+}
+
+.event-wrapper {
+    position: absolute;
+    top: -34px;
+    width: 100%;
+
+    .event-popup {
+        float: left;
+        cursor: pointer;
+        z-index: 99;
+        &.inactive {
+            display: none;
+        }
+        &:not(:first-child) {
+            margin-left: 5px;
+        }
+        display: block;
+        color: #eee;
+        background: rgba(42, 42, 42, 0.8);
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 5px 10px;
+    }
+
+   
+}
